@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome to the Student Portal</h2>
+<p>{{ msg }}</p>
+
+
+<div class="fsimg">
+    <img src="{% static 'images/img4.jpeg' %}" alt="Full Size Image">
+</div>
+
+
+<h2>Courses We Offer</h2>
+<div class="core">
+    <div class="core-card">
+        <img src="{% static 'images/cy.jpg' %}" alt="Course 1">
+        <h3>Cyber Security</h3>
+        <p>Cyber Security courses teach you how to protect computer systems and networks. You'll learn about network security, cryptography, ethical hacking, risk management, security operations, and secure software development.</p>
+    </div>
+    <div class="core-card">
+        <img src="{% static 'images/eth.jpeg' %}" alt="Course 2">
+        <h3>Ethical Hacking</h3>
+        <p>Ethical Hacking is a course that teaches you how to find and fix security vulnerabilities in computer systems and networks, but with permission from the organization</p>
+    </div>
+    <div class="core-card">
+        <img src="{% static 'images/ai.jpeg' %}" alt="Course 3">
+        <h3>Artificial Intelligence (AI) course</h3>
+        <p>An Artificial Intelligence (AI) course typically covers a range of topics to give you a solid foundation in AI principles and applications.</p>
+    </div>
+    <div class="core-card">
+        <img src="{% static 'images/ml.jpeg' %}" alt="Course 4">
+        <h3>Machine Learning (ML) </h3>
+        <p>Machine Learning (ML) courses focus on teaching you how to develop algorithms that allow computers to learn from and make decisions based on data. </p>
+    </div>
+    <div class="core-card">
+        <img src="{% static 'images/wd.jpeg' %}" alt="Course 5">
+        <h3>Web Development</h3>
+        <p>Web Development courses focus on Creating websites using HTML, CSS, and JavaScript (for front-end) and server-side languages like Python or Ruby (for back-end).</p>
+    </div>
+    <div class="core-card">
+        <img src="{% static 'images/ad.jpg' %}" alt="Course 6">
+        <h3>App Development</h3>
+        <p>App Development courses focus on  Building mobile applications using Swift for iOS, Kotlin for Android, or cross-platform frameworks like React Native and Flutter.</p>
+    </div>
+</div>
+<h2>Certificates Provided</h2>
+<div class="img-gal">
+    <img src="{% static 'images/cr1.jpg' %}" alt="Image 1">
+    <img src="{% static 'images/cr2.jpeg' %}" alt="Image 2">
+    <img src="{% static 'images/cr3.webp' %}" alt="Image 3">
+</div>
+
+{% endblock %}

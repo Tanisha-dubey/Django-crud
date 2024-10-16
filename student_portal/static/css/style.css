@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; 
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav {
+    margin: 10px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.fsimg img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.img-gal {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.img-gal img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.img-gal img:hover {
+    transform: scale(1.05);
+}
+
+.core {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to next line */
+    justify-content: space-around; /* Space out the cards */
+    margin-top: 20px; /* Space above the course section */
+}
+
+.core-card {
+    background: white; /* White background for cards */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px; /* Space around cards */
+    width: calc(33% - 20px); /* Responsive width, adjust as needed */
+    text-align: center; /* Center-align text */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.core-card img {
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-top-left-radius: 8px; /* Rounded corners for top */
+    border-top-right-radius: 8px; /* Rounded corners for top */
+}
+
+.core-card h3 {
+    margin: 10px 0; /* Space above and below title */
+}
+
+.core-card p {
+    padding: 0 10px; /* Padding for description */
+}
+
+.core-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+@media (max-width: 768px) {
+    .core-card {
+        width: calc(50% - 20px); /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .core-card {
+        width: 100%; /* 1 card per row on small screens */
+    }
+}
+
+
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    main {
+        margin: 10px;
+    }
+}

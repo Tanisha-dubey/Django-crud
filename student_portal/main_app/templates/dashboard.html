@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ data.name }}</h2>
+<p>Email: {{ data.email }}</p>
+<p>Contact: {{ data.contact }}</p>
+<h3>Your Queries</h3>
+{% comment %} 
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Query</th>
+        <th>Actions</th>
+    </tr>
+    {% for query in query_data %}
+    <tr>
+        <td>{{ query.stu_name }}</td>
+        <td>{{ query.stu_email }}</td>
+        <td>{{ query.stu_query }}</td>
+        <td>
+            <a href="{% url 'edit' query.id %}">Edit</a> | 
+            <a href="{% url 'delete' query.id %}">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No queries found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        .main {
+            display: flex;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head> {% endcomment %}
+<body>
+    <div class="main">
+        <div>
+            {% if key %}
+
+            <form action="{% url 'edit' key.id %}" method='post'>
+                {% csrf_token %}
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value="{{ key.stu_name }}" required>  
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" value="{{ key.stu_email }}" readonly>  
+
+                <label for="query">Query</label>
+                <input type="text" id="query" name="query" value="{{ key.stu_query }}" required>  
+
+                {% comment %} <input type="submit" value="Update">  {% endcomment %}
+                <button type="submit">Update</button>
+            </form>
+            {% else %}
+           
+            <form action="{% url 'query' %}" method='post'>
+                {% csrf_token %}
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value="{{ data.name }}" readonly>
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" value="{{ data.email }}" readonly> 
+
+                <label for="query">Query</label>
+                <input type="text" id="query" name="query" required>  
+
+                <button type="submit">Submit</button>  
+            </form>
+            {% endif %}
+        </div>
+
+        <div>
+            <h2>Query Details</h2>
+            <table border="2">
+                <thead>
+                    <tr>
+                        <th>Id.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Query</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in query_data %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.stu_name }}</td>
+                        <td>{{ i.stu_email }}</td>
+                        <td>{{ i.stu_query }}</td>
+                        <td><a href="{% url 'edit' i.id %}">Edit</a></td>
+                        <td>
+                            <form action="{% url 'delete' pk=i.id %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}All Data{% endblock %}
+
+{% block content %}
+<h2>All Data</h2>
+
+<h3>Students</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact Details</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.stu_name }}</td>
+        <td>{{ student.stu_email }}</td>
+        <td>{{ student.stu_contact }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No students found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Queries</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Query</th>
+    </tr>
+    {% for query in queries %}
+    <tr>
+        <td>{{ query.stu_name }}</td>
+        <td>{{ query.stu_email }}</td>
+        <td>{{ query.stu_query }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No queries found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}
